@@ -128,6 +128,8 @@ export async function connectionRequest(
   let remoteAddress;
   try {
     remoteAddress = new URL(connectionRequestUrl).hostname;
+    if(!remoteAddress)
+      remoteAddress = getRequestOrigin(sessionContext.httpRequest).remoteAddress;
   } catch (err) {
     return "Invalid connection request URL";
   }
