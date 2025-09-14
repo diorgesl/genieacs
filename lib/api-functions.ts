@@ -82,7 +82,7 @@ export async function connectionRequest(
         "InternetGatewayDevice.ManagementServer.ConnectionRequestPassword"
       ] || {}
     ).value || [""])[0];
-  } else {
+  } else if (device["Device.ManagementServer.ConnectionRequestURL"]) {
     connectionRequestUrl = (device[
       "Device.ManagementServer.ConnectionRequestURL"
     ].value || [""])[0];
@@ -98,6 +98,31 @@ export async function connectionRequest(
     ).value || [""])[0];
     password = ((
       device["Device.ManagementServer.ConnectionRequestPassword"] || {}
+    ).value || [""])[0];
+  } else {
+    connectionRequestUrl = (device[
+      "InternetGateWayDevice.ManagementServer.ConnectionRequestURL"
+    ].value || [""])[0];
+    udpConnectionRequestAddress = ((
+      device[
+        "InternetGateWayDevice.ManagementServer.UDPConnectionRequestAddress"
+      ] || {}
+    ).value || [""])[0];
+    stunEnable = ((
+      device["InternetGateWayDevice.ManagementServer.STUNEnable"] || {}
+    ).value || [""])[0];
+    connReqJabberId = ((
+      device["InternetGateWayDevice.ManagementServer.ConnReqJabberID"] || {}
+    ).value || [""])[0];
+    username = ((
+      device[
+        "InternetGateWayDevice.ManagementServer.ConnectionRequestUsername"
+      ] || {}
+    ).value || [""])[0];
+    password = ((
+      device[
+        "InternetGateWayDevice.ManagementServer.ConnectionRequestPassword"
+      ] || {}
     ).value || [""])[0];
   }
   let remoteAddress;

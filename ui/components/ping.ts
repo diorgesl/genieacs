@@ -42,6 +42,8 @@ const component: ClosureComponent = (vn): Component => {
         device["InternetGatewayDevice.ManagementServer.ConnectionRequestURL"];
       if (!param)
         param = device["Device.ManagementServer.ConnectionRequestURL"];
+      if (!param)
+        param = device["InternetGateWayDevice.ManagementServer.ConnectionRequestURL"];
 
       let h;
       try {

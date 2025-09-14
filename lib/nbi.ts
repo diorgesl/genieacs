@@ -366,7 +366,7 @@ async function handler(
               if (p?.value) return p.value[0];
             } else if (exp[0] === "FUNC") {
               if (exp[1] === "REMOTE_ADDRESS") {
-                for (const root of ["InternetGatewayDevice", "Device"]) {
+                for (const root of ["InternetGatewayDevice", "Device", "InternetGateWayDevice"]) {
                   const p =
                     device[`${root}.ManagementServer.ConnectionRequestURL`];
                   if (p?.value) return new URL(p.value[0] as string).hostname;
